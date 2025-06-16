@@ -105,6 +105,34 @@
   </div>
 
   <script>
+    const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEBAPP_URL_HERE';
+
+    document.getElementById("entryForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const data = {
+        date: form.date.value,
+        detailment: form.detailment.value,
+        offr: form.offr.value,
+        jco: form.jco.value,
+        or: form.or.value,
+        total: form.total.value,
+        action: form.action.value
+      };
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res => res.text())
+      .then(res => alert("Data submitted successfully!"))
+      .catch(err => alert("Error: " + err));
+    });
+
     function updateEntry() {
       alert("Update function to be integrated with Google Sheets");
     }
@@ -114,10 +142,6 @@
     function downloadExcel() {
       alert("Download as Excel functionality goes here");
     }
-    document.getElementById("entryForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Create function to send data to Google Sheet");
-    });
   </script>
 </body>
 </html>
