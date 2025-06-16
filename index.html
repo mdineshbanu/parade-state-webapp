@@ -1,50 +1,113 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-signin-client_id" content="373774131645-upja2rl72acnjheo2dgfvja55osr9jop.apps.googleusercontent.com">
-  <title>Parade State Report</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <title>Parade State Entry</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef3f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      background-color: #fff;
+      padding: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+      color: #003366;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #003366;
+      color: white;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-top: 4px;
+    }
+    .btn-group {
+      margin-top: 20px;
+      text-align: right;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin-left: 10px;
+      border: none;
+      background-color: #0055cc;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #003f99;
+    }
+    .btn.delete {
+      background-color: #cc0000;
+    }
+    .btn.download {
+      background-color: #00aa66;
+    }
+  </style>
 </head>
 <body>
-  <h1>Parade State Report Form</h1>
-  <div id="g_id_onload"
-       data-client_id="373774131645-upja2rl72acnjheo2dgfvja55osr9jop.apps.googleusercontent.com"
-       data-callback="onSignIn">
+  <div class="container">
+    <h1>Parade State Record</h1>
+    <form id="entryForm">
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Detailment</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td><input type="date" name="date" required></td>
+          <td><input type="text" name="detailment" placeholder="Enter Detailment" required></td>
+          <td><textarea name="action" rows="2" placeholder="Enter Action/Remarks" required></textarea></td>
+        </tr>
+      </table>
+      <div class="btn-group">
+        <button type="submit" class="btn">Create</button>
+        <button type="button" class="btn" onclick="updateEntry()">Update</button>
+        <button type="button" class="btn delete" onclick="deleteEntry()">Delete</button>
+        <button type="button" class="btn download" onclick="downloadExcel()">Download</button>
+      </div>
+    </form>
   </div>
-  <div class="g_id_signin" data-type="standard"></div>
-  <div id="userInfo"></div>
 
-  <form id="paradeForm">
-    <label>AUTH STR (OFFR, JCO, OR, TOTAL)</label>
-    <input name="AUTH STR_OFFR" placeholder="OFFR">
-    <input name="AUTH STR_JCO" placeholder="JCO">
-    <input name="AUTH STR_OR" placeholder="OR">
-    <input name="AUTH STR_TOTAL" placeholder="TOTAL">
-    <br>
-    <button type="submit">Submit</button>
-  </form>
-
-  <h3>Submitted Records</h3>
-  <table id="dataTable">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Detailment</th>
-        <th>OFFR</th>
-        <th>JCO</th>
-        <th>OR</th>
-        <th>TOTAL</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <button onclick="downloadExcel()">Download as Excel</button>
-  <script src="script.js"></script>
+  <script>
+    function updateEntry() {
+      alert("Update function to be integrated with Google Sheets");
+    }
+    function deleteEntry() {
+      alert("Delete function to be integrated with Google Sheets");
+    }
+    function downloadExcel() {
+      alert("Download as Excel functionality goes here");
+    }
+    document.getElementById("entryForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Create function to send data to Google Sheet");
+    });
+  </script>
 </body>
 </html>
