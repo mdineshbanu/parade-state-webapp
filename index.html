@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-signin-client_id" content="373774131645-upja2rl72acnjheo2dgfvja55osr9jop.apps.googleusercontent.com">
   <title>Parade State Entry</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -107,10 +108,8 @@
   <script>
     const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEBAPP_URL_HERE';
 
-    document.getElementById("entryForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const form = e.target;
+    function sendData(mode) {
+      const form = document.getElementById("entryForm");
       const data = {
         date: form.date.value,
         detailment: form.detailment.value,
@@ -118,7 +117,8 @@
         jco: form.jco.value,
         or: form.or.value,
         total: form.total.value,
-        action: form.action.value
+        action: form.action.value,
+        mode: mode
       };
 
       fetch(scriptURL, {
@@ -129,18 +129,29 @@
         }
       })
       .then(res => res.text())
-      .then(res => alert("Data submitted successfully!"))
+      .then(res => alert(res))
       .catch(err => alert("Error: " + err));
+    }
+
+    document.getElementById("entryForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      sendData("create");
     });
 
     function updateEntry() {
-      alert("Update function to be integrated with Google Sheets");
+      sendData("update");
     }
+
     function deleteEntry() {
-      alert("Delete function to be integrated with Google Sheets");
+      if (confirm("Are you sure you want to delete this record?")) {
+        sendData("delete");
+      }
     }
+
     function downloadExcel() {
-      alert("Download as Excel functionality goes here");
+      const table = document.querySelector("table");
+      const wb = XLSX.utils.table_to_book(table, { sheet: "ParadeState" });
+      XLSX.writeFile(wb, "ParadeState.xlsx");
     }
   </script>
 </body>
