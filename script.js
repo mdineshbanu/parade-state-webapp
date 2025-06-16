@@ -35,7 +35,7 @@ document.getElementById('paradeForm').addEventListener('submit', async function 
       TOTAL: formData.get(`${row}_TOTAL`) || 0,
     });
   }
-  const response = await fetch("YOUR_WEB_APP_URL_HERE", {
+  const response = await fetch("https://script.google.com/macros/s/AKfycbypNmIU39p0qOoERsZ42SgcLIUMYSLLwcUmrW8YLzUCu52sA-fPq-bUsvXtJYsbsfeJ/exec", {
     method: "POST",
     body: JSON.stringify({ rows }),
     headers: { "Content-Type": "application/json" }
@@ -49,7 +49,7 @@ document.getElementById('paradeForm').addEventListener('submit', async function 
 });
 
 async function loadDataTable() {
-  const res = await fetch("YOUR_WEB_APP_URL_HERE");
+  const res = await fetch("https://script.google.com/macros/s/AKfycbypNmIU39p0qOoERsZ42SgcLIUMYSLLwcUmrW8YLzUCu52sA-fPq-bUsvXtJYsbsfeJ/exec");
   const data = await res.json();
   const tbody = document.querySelector("#dataTable tbody");
   tbody.innerHTML = "";
@@ -81,7 +81,7 @@ async function updateRow(index) {
     OR: tds[4].innerText,
     TOTAL: tds[5].innerText
   };
-  const res = await fetch("YOUR_WEB_APP_URL_HERE", {
+  const res = await fetch("https://script.google.com/macros/s/AKfycbypNmIU39p0qOoERsZ42SgcLIUMYSLLwcUmrW8YLzUCu52sA-fPq-bUsvXtJYsbsfeJ/exec", {
     method: "PUT",
     body: JSON.stringify(payload)
   });
@@ -90,7 +90,7 @@ async function updateRow(index) {
 
 async function deleteRow(index) {
   if (!confirm("Are you sure to delete this row?")) return;
-  const res = await fetch("YOUR_WEB_APP_URL_HERE", {
+  const res = await fetch("https://script.google.com/macros/s/AKfycbypNmIU39p0qOoERsZ42SgcLIUMYSLLwcUmrW8YLzUCu52sA-fPq-bUsvXtJYsbsfeJ/exec", {
     method: "DELETE",
     body: JSON.stringify({ row: index })
   });
