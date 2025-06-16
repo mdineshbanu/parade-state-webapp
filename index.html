@@ -13,7 +13,7 @@
       padding: 0;
     }
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 60px auto;
       background-color: #fff;
       padding: 40px;
@@ -38,7 +38,7 @@
       background-color: #003366;
       color: white;
     }
-    input, textarea, select {
+    input, textarea {
       width: 100%;
       padding: 8px;
       border-radius: 4px;
@@ -77,11 +77,19 @@
         <tr>
           <th>Date</th>
           <th>Detailment</th>
+          <th>OFFR</th>
+          <th>JCO</th>
+          <th>OR</th>
+          <th>TOTAL</th>
           <th>Action</th>
         </tr>
         <tr>
           <td><input type="date" name="date" required></td>
           <td><input type="text" name="detailment" placeholder="Enter Detailment" required></td>
+          <td><input type="number" name="offr" placeholder="0" required></td>
+          <td><input type="number" name="jco" placeholder="0" required></td>
+          <td><input type="number" name="or" placeholder="0" required></td>
+          <td><input type="number" name="total" placeholder="0" required></td>
           <td><textarea name="action" rows="2" placeholder="Enter Action/Remarks" required></textarea></td>
         </tr>
       </table>
