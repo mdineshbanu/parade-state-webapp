@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-signin-client_id" content="373774131645-upja2rl72acnjheo2dgfvja55osr9jop.apps.googleusercontent.com">
+  <title>Parade State Report</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <h1>Parade State Report Form</h1>
+  <div id="g_id_onload"
+       data-client_id="373774131645-upja2rl72acnjheo2dgfvja55osr9jop.apps.googleusercontent.com"
+       data-callback="onSignIn">
+  </div>
+  <div class="g_id_signin" data-type="standard"></div>
+  <div id="userInfo"></div>
+
+  <form id="paradeForm">
+    <label>AUTH STR (OFFR, JCO, OR, TOTAL)</label>
+    <input name="AUTH STR_OFFR" placeholder="OFFR">
+    <input name="AUTH STR_JCO" placeholder="JCO">
+    <input name="AUTH STR_OR" placeholder="OR">
+    <input name="AUTH STR_TOTAL" placeholder="TOTAL">
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <h3>Submitted Records</h3>
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Detailment</th>
+        <th>OFFR</th>
+        <th>JCO</th>
+        <th>OR</th>
+        <th>TOTAL</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <button onclick="downloadExcel()">Download as Excel</button>
+  <script src="script.js"></script>
+</body>
+</html>
