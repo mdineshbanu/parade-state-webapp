@@ -35,7 +35,7 @@ document.getElementById('paradeForm').addEventListener('submit', async function 
       TOTAL: formData.get(`${row}_TOTAL`) || 0,
     });
   }
-  const response = await fetch("https://script.google.com/macros/s/AKfycbx0XRYtVTkTtS-CAKQbPVB3BFpO4HjozOkWaDC912hmBSwSM4buYC_peD5j0ATGvFHh/exec", {
+  const response = await fetch("https://script.google.com/macros/s/AKfycbwtCT25R8bPz44qH5Dd5-sjD7mwBJwHP8uT1lqEeU5hwdZycmhLYjNKghjctptZbjY/exec", {
     method: "POST",
     body: JSON.stringify({ rows }),
     headers: { "Content-Type": "application/json" }
@@ -49,7 +49,7 @@ document.getElementById('paradeForm').addEventListener('submit', async function 
 });
 
 async function loadDataTable() {
-  const res = await fetch("https://script.google.com/macros/s/AKfycbx0XRYtVTkTtS-CAKQbPVB3BFpO4HjozOkWaDC912hmBSwSM4buYC_peD5j0ATGvFHh/exec");
+  const res = await fetch("https://script.google.com/macros/s/AKfycbwtCT25R8bPz44qH5Dd5-sjD7mwBJwHP8uT1lqEeU5hwdZycmhLYjNKghjctptZbjY/exec");
   const data = await res.json();
   const tbody = document.querySelector("#dataTable tbody");
   tbody.innerHTML = "";
@@ -81,7 +81,7 @@ async function updateRow(index) {
     OR: tds[4].innerText,
     TOTAL: tds[5].innerText
   };
-  const res = await fetch("https://script.google.com/macros/s/AKfycbx0XRYtVTkTtS-CAKQbPVB3BFpO4HjozOkWaDC912hmBSwSM4buYC_peD5j0ATGvFHh/exec", {
+  const res = await fetch("https://script.google.com/macros/s/AKfycbwtCT25R8bPz44qH5Dd5-sjD7mwBJwHP8uT1lqEeU5hwdZycmhLYjNKghjctptZbjY/exec", {
     method: "PUT",
     body: JSON.stringify(payload)
   });
@@ -90,7 +90,7 @@ async function updateRow(index) {
 
 async function deleteRow(index) {
   if (!confirm("Are you sure to delete this row?")) return;
-  const res = await fetch("https://script.google.com/macros/s/AKfycbx0XRYtVTkTtS-CAKQbPVB3BFpO4HjozOkWaDC912hmBSwSM4buYC_peD5j0ATGvFHh/exec", {
+  const res = await fetch("https://script.google.com/macros/s/AKfycbwtCT25R8bPz44qH5Dd5-sjD7mwBJwHP8uT1lqEeU5hwdZycmhLYjNKghjctptZbjY/exec", {
     method: "DELETE",
     body: JSON.stringify({ row: index })
   });
