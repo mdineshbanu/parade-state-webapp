@@ -73,10 +73,14 @@
   <div class="container">
     <h1>Parade State Record</h1>
     <form id="entryForm">
+      <label for="date">Date:</label>
+      <input type="date" name="date" id="date" required>
+
+      <label for="detailment">Detailment:</label>
+      <input type="text" name="detailment" id="detailment" placeholder="Enter Detailment" required>
+
       <table>
         <tr>
-          <th>Date</th>
-          <th>Detailment</th>
           <th>OFFR</th>
           <th>JCO</th>
           <th>OR</th>
@@ -84,8 +88,6 @@
           <th>Action</th>
         </tr>
         <tr>
-          <td><input type="date" name="date" required></td>
-          <td><input type="text" name="detailment" placeholder="Enter Detailment" required></td>
           <td><input type="number" name="offr" placeholder="0" required></td>
           <td><input type="number" name="jco" placeholder="0" required></td>
           <td><input type="number" name="or" placeholder="0" required></td>
